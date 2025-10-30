@@ -19,7 +19,7 @@ class GenderService {
     getGenderByName(gender) {
         const ls = JSON.parse(localStorage.getItem('genderList'))
         if (!ls) {
-            return
+            return []
         }
 
         return ls.filter(genderEntity => {
@@ -44,6 +44,24 @@ class GenderService {
 
     getGenders() {
         return JSON.parse(localStorage.getItem('genderList') || '[]') || []
+    }
+
+    removeElementByName(removeGender) {
+        if (!this.getGenderByName(removeGender)) {
+            throw new Error('Se esta intentando eliminar un genero que no existe')
+        }
+
+        if (!localStorage.getItem('genderList')) {
+            throw new Error('Gender list no esta definido en localstorage')
+        }
+
+        const currentLs = JSON.parse(localStorage.getItem('genderList'))
+
+        console.log(currentLs.filter((obj) => obj.gender !== removeGender));
+
+        localStorage.setItem('genderList', 
+            JSON.stringify(currentLs.filter((gender) => gender.gender !== removeGender))
+        )
     }
 }
 

@@ -26,11 +26,27 @@ const printGenderList = () => {
         const element = document.createElement('span')
         element.className = 'genderSpan'
         element.textContent = genderEntity.gender
+        removeOnClick(element)
         childs.push(element)
     });
 
     divGenderList.innerHTML = ''
     divGenderList.append(...childs)
+
+    if (genderService.getGenders().length == 0) {
+        const element = document.createElement('h5')
+        element.textContent = 'No existen generos'
+        divGenderList.append(element)
+        return
+    }
+}
+
+const removeOnClick = (spanElement) => {
+    const genderService = GenderService.getInstance()
+    spanElement.addEventListener('mousedown', () => {
+        genderService.removeElementByName(spanElement.textContent)
+        printGenderList()
+    })
 }
 
 
