@@ -16,6 +16,10 @@ class GenderService {
         return GenderService.instance;
     }
 
+    getGenders() {
+        return JSON.parse(localStorage.getItem('genderList') || '[]') || []
+    }
+
     getGenderByName(gender) {
         const ls = JSON.parse(localStorage.getItem('genderList'))
         if (!ls) {
@@ -24,6 +28,17 @@ class GenderService {
 
         return ls.filter(genderEntity => {
             if (genderEntity.gender == gender) return genderEntity
+        });
+    }
+
+    getGenderById(genderId) {
+        const ls = JSON.parse(localStorage.getItem('genderList'))
+        if (!ls) {
+            return []
+        }
+
+        return ls.filter(genderEntity => {
+            if (genderEntity.id == genderId) return genderEntity
         });
     }
 
@@ -42,25 +57,14 @@ class GenderService {
         }
     }
 
-    getGenders() {
-        return JSON.parse(localStorage.getItem('genderList') || '[]') || []
-    }
-
-    removeElementByName(removeGender) {
-        if (!this.getGenderByName(removeGender)) {
-            throw new Error('Se esta intentando eliminar un genero que no existe')
-        }
-
+    removeElementById(removeGender) {
         if (!localStorage.getItem('genderList')) {
             throw new Error('Gender list no esta definido en localstorage')
         }
 
         const currentLs = JSON.parse(localStorage.getItem('genderList'))
-
-        console.log(currentLs.filter((obj) => obj.gender !== removeGender));
-
-        localStorage.setItem('genderList', 
-            JSON.stringify(currentLs.filter((gender) => gender.gender !== removeGender))
+        localStorage.setItem('genderList',
+            JSON.stringify(currentLs.filter((gender) => gender.id !== parseInt(removeGender)))
         )
     }
 
@@ -70,7 +74,6 @@ class GenderService {
         }
 
         const ls = JSON.parse(localStorage.getItem('genderList'))
-        console.log(ls);
         let maxId = 0;
         ls.forEach(obj => {
             if (obj.id > maxId) {

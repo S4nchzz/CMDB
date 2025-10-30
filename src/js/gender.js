@@ -24,6 +24,7 @@ const printGenderList = () => {
     const childs = []
     genderService.getGenders().forEach(genderEntity => {
         const element = document.createElement('span')
+        element.id = genderEntity.id
         element.className = 'genderSpan'
         element.textContent = genderEntity.gender
         removeOnClick(element)
@@ -44,7 +45,7 @@ const printGenderList = () => {
 const removeOnClick = (spanElement) => {
     const genderService = GenderService.getInstance()
     spanElement.addEventListener('mousedown', () => {
-        genderService.removeElementByName(spanElement.textContent)
+        genderService.removeElementById(spanElement.id)
         printGenderList()
     })
 }
