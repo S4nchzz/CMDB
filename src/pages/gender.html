@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="../styles/gender.css"/>
     </head>
 <body>
-    <div>
-        <h2>Generos actuales:</h2>
-        <div id="genderList" class="genderList">
+    <div class="main">
+        <div>
+            <h2>Generos actuales:</h2>
+            <div id="genderList" class="genderList">
+        </div>
+        <form>
+            <label for="genero">
+                Genero:
+                <input id="genero" type="text" placeholder="Terror..." name="gender" maxlength="100" required/>
+            </label>
+            <input type="submit" value="Crear genero"/>
+        </form>
     </div>
-    <form>
-        <label for="genero">
-            Genero:
-            <input id="genero" type="text" placeholder="Terror..." name="gender" maxlength="100" required/>
-        </label>
-        <input type="submit" value="Crear genero"/>
-    </form>
 </body>
 <script type="module" src="../js/gender.js"></script>
 </html>
