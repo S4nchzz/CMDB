@@ -41,7 +41,17 @@ form input:hover {
 }
 
 form input[type = submit] {
+    background-color: rgb(235, 235, 235);
+    color: black;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: .9rem;
     cursor: pointer;
+}
+
+form input[type = submit]:hover {
+    background-color: rgb(218, 218, 218);
+    filter: drop-shadow(0 0 0.15rem white);
 }
 
 .genderList {
@@ -78,4 +88,35 @@ h5 {
     margin: 0;
     padding: 0;
     width: 100%;
+}
+
+.removeAllGenders {
+    border: 0;
+    background-color: #c9222d;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.removeAllGenders:hover {
+    background-color: #970f18;
+}
+
+.removeAllGenders img {
+    width: 24px;
+    height: 24px;
+}
+
+.genderListTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.genderControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }

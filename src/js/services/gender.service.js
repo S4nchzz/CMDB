@@ -83,6 +83,8 @@ class GenderService {
 
         return maxId + 1
     }
+
+    removeAllGenders() { localStorage.removeItem('genderList') }
 }
 
 export default GenderService

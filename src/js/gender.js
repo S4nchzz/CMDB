@@ -50,8 +50,18 @@ const removeOnClick = (spanElement) => {
     })
 }
 
+const setUpRemoveAllButton = () => {
+    const genderService = GenderService.getInstance()
+    const button = document.getElementById('removeAllGenders')
+    button.addEventListener('mousedown', () => {
+        genderService.removeAllGenders()
+        printGenderList()
+    })
+}
+
 
 const init = () => {
+    setUpRemoveAllButton()
     manageMovieGenderCreation()
     printGenderList()
 }
