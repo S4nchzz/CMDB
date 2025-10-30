@@ -16,7 +16,23 @@ class GenderService {
         return GenderService.instance;
     }
 
+    getGenderByName(gender) {
+        const ls = JSON.parse(localStorage.getItem('genderList'))
+        if (!ls) {
+            return
+        }
+
+        return ls.filter(genderEntity => {
+            if (genderEntity.gender == gender) return genderEntity
+        });
+    }
+
     addGender(gender) {
+        if (this.getGenderByName(gender).length !== 0) {
+            alert('Este genero ya existe, utiliza otro')
+            return
+        }
+
         try {
             const lsOld = JSON.parse(localStorage.getItem('genderList'))
             lsOld.push(new GenderEntity(gender))
