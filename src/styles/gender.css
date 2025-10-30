@@ -42,3 +42,23 @@ form input:hover {
 form input[type = submit] {
     cursor: pointer;
 }
+
+.genderList {
+    display: flex;
+    gap: 10px;
+}
+
+.genderSpan {
+    border: 1px solid rgb(199, 199, 199);
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.genderSpan:hover {
+    background-color: rgb(224, 224, 224);
+}
