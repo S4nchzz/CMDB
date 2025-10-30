@@ -63,6 +63,23 @@ class GenderService {
             JSON.stringify(currentLs.filter((gender) => gender.gender !== removeGender))
         )
     }
+
+    getLastGenderID() {
+        if (!localStorage.getItem('genderList')) {
+            return 0
+        }
+
+        const ls = JSON.parse(localStorage.getItem('genderList'))
+        console.log(ls);
+        let maxId = 0;
+        ls.forEach(obj => {
+            if (obj.id > maxId) {
+                maxId = obj.id
+            }
+        });
+
+        return maxId + 1
+    }
 }
 
 export default GenderService
