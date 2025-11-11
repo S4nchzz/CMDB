@@ -54,14 +54,14 @@ form input[type = submit]:hover {
     filter: drop-shadow(0 0 0.15rem white);
 }
 
-.genderList {
+.genreList {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.genderSpan {
+.genreSpan {
     border: 1px solid rgb(199, 199, 199);
     margin: 0;
     background-color: white;
@@ -72,7 +72,7 @@ form input[type = submit]:hover {
     cursor: pointer;
 }
 
-.genderSpan:hover {
+.genreSpan:hover {
     background-color: rgb(224, 224, 224);
 }
 
@@ -90,7 +90,7 @@ h5 {
     width: 100%;
 }
 
-.removeAllGenders {
+.removeAllGenres {
     border: 0;
     background-color: #c9222d;
     padding: 10px;
@@ -99,22 +99,22 @@ h5 {
     width: 200px;
 }
 
-.removeAllGenders:hover {
+.removeAllGenres:hover {
     background-color: #970f18;
 }
 
-.removeAllGenders img {
+.removeAllGenres img {
     width: 24px;
     height: 24px;
 }
 
-.genderListTitle {
+.genreListTitle {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.genderControls {
+.genreControls {
     display: flex;
     flex-direction: column;
     align-items: center;

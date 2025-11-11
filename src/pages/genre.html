@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géneros</title>
+    <link rel="stylesheet" href="../styles/genre.css"/>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <h2>Géneros actuales:</h2>
+            <div id="genreList" class="genreList"/>
+        </div>
+        <div class="genreControls">
+            <form>
+                <input id="genre" type="text" placeholder="Terror..." name="genre" maxlength="100" required/>
+                <input type="submit" value="Crear género"/>
+            </form>
+            <button id="removeAllGenres" class="removeAllGenres">
+                <img
+                    src="../../public/img/svg/trash.svg"
+                    alt="Remove all genres"
+                />
+            </button>
+        </div>
+    </div>
+</body>
+<script type="module" src="../js/genre.js"></script>
+</html>

@@ -18,6 +18,19 @@ class MovieService {
     }
 
     addMovie(title, releaseDate, popularity) {
+        const rdDate = new Date(releaseDate)
+        const tomorrow = new Date()
+        tomorrow.setDate(tomorrow.getDate() + 1)
+
+        if (
+            rdDate.getFullYear() == tomorrow.getFullYear() &&
+            rdDate.getMonth() == tomorrow.getMonth() &&
+            rdDate.getDay() == tomorrow.getDay()
+        ) {
+            alert('La fecha de estreno no puede ser posterior al dia que se da de alta.')
+            return
+        }
+
         let movies = JSON.parse(localStorage.getItem('movieList'))
         if (movies && Array.isArray(movies)) {
             movies.push(new MovieEntity(title, releaseDate, popularity))
