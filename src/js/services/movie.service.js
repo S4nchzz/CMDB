@@ -29,7 +29,16 @@ class MovieService {
     }
 
     getLastMovieID() {
-        
+        let movies = JSON.parse(localStorage.getItem('movieList'))
+
+        if (movies && Array.isArray(movies)) {
+            let maxID = Math.max(...movies.map((m) => m.id))
+            return maxID + 1
+        } else if (movies) {
+            return movies.id + 1
+        }
+
+        return 1
     }
 }
 
