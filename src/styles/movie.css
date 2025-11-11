@@ -60,3 +60,38 @@ form input[type = submit]:hover {
     background-color: rgb(218, 218, 218);
     filter: drop-shadow(0 0 0.15rem white);
 }
+
+.genreList {
+    background-color: #161616;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: fit-content;
+}
+
+.genreItem {
+    color: rgb(161, 161, 161);
+    border: 1px solid rgb(75, 75, 75);
+    background-color: rgb(22, 22, 22);
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.genreItem:hover {
+    background-color: rgb(29, 29, 29);
+}
+
+.genreItemOn {
+    color: rgb(161, 161, 161);
+    border: 1px solid rgb(75, 75, 75);
+    background-color: rgb(49, 49, 49);
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
