@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="../styles/movie.css"/>
+</head>
+<body>
+    <div class="container">
+        <h2>Creación de peliculas</h2>
+        <form id="movieForm">
+            <input type="text" name="title" placeholder="Title" maxlength="100" required/>
+            <input type="text" name="releaseDate" placeholder="Release date" required/>
+            <input type="number" name="popularity" placeholder="Popularity" min="0" max="100" required/>
+            <input type="submit" value="Crear"/>
+        </form>
+    </div>
+</body>
+
+<script src="../js/movie.js" type="module"></script>
+</html>
