@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('../../public/fonts/MontserratBold.ttf');
+}
+
+@font-face {
+    font-family: 'MontserratRegular';
+    src: url('../../public/fonts/MontserratRegular.ttf');
+}
+
+* {
+    font-family: MontserratRegular;
+    color: white;
+}
+
+body {
+    background: #1a1a1a;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.movies {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.movieContentParent {
+    display: flex;
+    flex-direction: column;
+}
+
+.movieContentParent p {
+    margin: 0;
+    padding: 5px;
+}
+
+.movieContentParent p:last-of-type {
+    color: rgb(109, 109, 109);
+}
+
+.simulatedImg {
+    width: 180px;
+    height: 220px;
+    background-color: rgb(37, 37, 37);
+    border-radius: 15px;
+    border: 1px solid rgb(53, 53, 53);
+}
+
+.movieDataContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.movieImgVotes {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.movieImgVotes img {
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: .15s ease;
+    cursor: pointer;
+}
+
+.movieImgVotes img:first-of-type:hover {
+    background-color: rgba(29, 150, 45, 0.26);
+}
+
+.movieImgVotes img:last-of-type:hover {
+    background-color: rgba(139, 16, 16, 0.199);
+}
+
+.dataParent {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
