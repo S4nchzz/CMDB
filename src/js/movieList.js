@@ -6,6 +6,8 @@ const loadMovies = () => {
     
     const handleVoteRate = (vote, movie) => {
         movieService.vote(vote, movie.id)
+        moviesContainer.innerHTML = ''
+        loadMovies()
     }
 
     const displayAllInfo = (movie, show) => {
