@@ -37,12 +37,17 @@ const loadMovies = () => {
         
         const genres = document.createElement('p')
         genres.textContent = `${movie.genres}`
+        console.log(movie.genres);
+
+        console.log(movie);
+        const popularity = document.createElement('p')
+        popularity.textContent = `Popularidad: ${movie.popularity} / 100`
 
         const rating = document.createElement('p')
         if (movie.votes && Array.isArray(movie.votes)) {
             const upvotes = movie.votes.filter((vote) => vote )
-
-            rating.textContent = `Puntuación: ${((upvotes.length / movie.votes.length) * 10).toFixed(2)}`
+            const result = ((upvotes.length / movie.votes.length) * 10)
+            rating.textContent = `Puntuación: ${result ? result.toFixed(2) : 0}`
         } else {
             rating.textContent = `Puntuación: 0`
         }
@@ -96,7 +101,7 @@ const loadMovies = () => {
         removeMovieImg.alt = 'Remove movie'
         removeMovie.appendChild(removeMovieImg)
 
-        allInfo.append(nVotes, genres, rating)
+        allInfo.append(nVotes, genres, rating, popularity)
         simImg.append(moreInfoButton, allInfo)
         movieImgVotes.append(upVote, downVote)
 

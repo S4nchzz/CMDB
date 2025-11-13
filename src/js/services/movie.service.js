@@ -58,7 +58,7 @@ class MovieService {
         }
 
         if (movies && Array.isArray(movies)) {
-            movies.push(new MovieEntity(title, releaseDate, popularity, Array.from(this.genreList)))
+            movies.push(new MovieEntity(this.getLastMovieID(), title, releaseDate, popularity, Array.from(this.genreList)))
         } else if (movies) {
             movies = [movies, new MovieEntity(this.getLastMovieID(), title, releaseDate, popularity)]
         }

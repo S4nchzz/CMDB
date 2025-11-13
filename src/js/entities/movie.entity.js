@@ -10,6 +10,6 @@ export class MovieEntity {
         this.votes = [];
         this.rating = 0;
         this.numVotes = 0;
-        this.genres = genres.length ? genres : [1];
+        this.genres = genres;
     }
 }
