@@ -1,9 +1,8 @@
 import MovieService from "../services/movie.service.js";
 
 export class MovieEntity {
-    constructor(title, releaseDate, popularity, genres = [] ) {
-        const movieService = MovieService.getInstance();
-        this.id = movieService.getLastMovieID();
+    constructor(id, title, releaseDate, popularity, genres = [] ) {
+        this.id = id
 
         this.title = title;
         this.releaseDate = releaseDate;

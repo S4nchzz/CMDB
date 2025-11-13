@@ -26,6 +26,9 @@ body {
     display: flex;
     flex-direction: row;
     gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .movieContentParent {
@@ -121,4 +124,22 @@ body {
 .allInfo p {
     color: grey;
     font-size: .9rem;
+}
+
+.removeMovie {
+    border: 0;
+    background-color: #c9222d;
+    padding: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: fit-content;
+    transition: .15s ease;
+}
+
+.removeMovie:hover {
+    background-color: #970f18;
+}
+
+.removeMovie img {
+    width: 18px;
 }

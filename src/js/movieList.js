@@ -4,15 +4,24 @@ const loadMovies = () => {
     const moviesContainer = document.getElementById('movies')
     const movieService = MovieService.getInstance()
     
-    const handleVoteRate = (vote, movie) => {
-        movieService.vote(vote, movie.id)
+    const reprint = () => {
         moviesContainer.innerHTML = ''
         loadMovies()
+    }
+
+    const handleVoteRate = (vote, movie) => {
+        movieService.vote(vote, movie.id)
+        reprint()
     }
 
     const displayAllInfo = (movie, show) => {
         const allInfoContainer = document.getElementById(`allInfo${movie.id}`)
         allInfoContainer.style = `opacity: ${show ? 1 : 0}`
+    }
+
+    const delMovie = (id) => {
+        movieService.removeMovie(id)
+        reprint()
     }
 
     const createMovieElement = (movie) => {
@@ -77,6 +86,16 @@ const loadMovies = () => {
         downVote.src = '../../public/img/svg/downVote.svg'
         downVote.alt = 'downVote'
 
+        const removeMovie = document.createElement('button')
+        removeMovie.className = 'removeMovie'
+        removeMovie.addEventListener('click', () => {
+            delMovie(movie.id)
+        })
+        const removeMovieImg = document.createElement('img')
+        removeMovieImg.src = '../../public/img/svg/trash.svg'
+        removeMovieImg.alt = 'Remove movie'
+        removeMovie.appendChild(removeMovieImg)
+
         allInfo.append(nVotes, genres, rating)
         simImg.append(moreInfoButton, allInfo)
         movieImgVotes.append(upVote, downVote)
@@ -84,7 +103,7 @@ const loadMovies = () => {
         movieDataContainer.append(movieTitle, movieReleaseDate)
         dataParent.append(movieDataContainer, movieImgVotes)
 
-        contentParent.append(simImg, dataParent)
+        contentParent.append(simImg, dataParent, removeMovie)
         return contentParent
     }
 

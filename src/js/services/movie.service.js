@@ -60,13 +60,13 @@ class MovieService {
         if (movies && Array.isArray(movies)) {
             movies.push(new MovieEntity(title, releaseDate, popularity, Array.from(this.genreList)))
         } else if (movies) {
-            movies = [movies, new MovieEntity(title, releaseDate, popularity)]
+            movies = [movies, new MovieEntity(this.getLastMovieID(), title, releaseDate, popularity)]
         }
 
         resultH2.textContent = 'Pelicula añadida.'
         resultH2.style.color = '#52cc29'
         
-        localStorage.setItem('movieList', movies ? JSON.stringify(movies) : JSON.stringify(new MovieEntity(title, releaseDate, popularity, Array.from(this.genreList))))
+        localStorage.setItem('movieList', movies ? JSON.stringify(movies) : JSON.stringify(new MovieEntity(this.getLastMovieID(), title, releaseDate, popularity, Array.from(this.genreList))))
     }
 
     getLastMovieID() {
@@ -79,7 +79,7 @@ class MovieService {
             return movies.id + 1
         }
 
-        return 1
+        return 0
     }
 
     addGenre(genre) {
@@ -113,6 +113,20 @@ class MovieService {
         if (movies.id == id) {
             movies.votes = [...movies.votes, vote]
             localStorage.setItem('movieList', movies)
+        }
+    }
+
+    removeMovie(id) {
+        const movies = JSON.parse(localStorage.getItem('movieList'))
+        if (Array.isArray(movies)) {
+            const filterMovies = movies.filter((movie) => parseInt(movie.id) !== id)
+            localStorage.setItem('movieList', JSON.stringify(filterMovies))
+            return
+        }
+
+        /* MUST BE */
+        if (movies.id == id) {
+            localStorage.removeItem('movieList')
         }
     }
 }
