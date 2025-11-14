@@ -1,4 +1,5 @@
 import MovieService from "./services/movie.service.js"
+import getMovieImage from "./api/omdb.api.js"
 
 const loadMovies = () => {
     const moviesContainer = document.getElementById('movies')
@@ -24,7 +25,7 @@ const loadMovies = () => {
         reprint()
     }
 
-    const createMovieElement = (movie) => {
+    const createMovieElement = async(movie) => {
         const contentParent = document.createElement('div')
         contentParent.className = 'movieContentParent'
 
@@ -54,6 +55,7 @@ const loadMovies = () => {
         
         const simImg = document.createElement('div')
         simImg.className = 'simulatedImg'
+        simImg.style= `background-image: url('${await getMovieImage(movie.title)}')`
         
         const moreInfoButton = document.createElement('img')
         moreInfoButton.className = 'moreInfoImg'
@@ -114,8 +116,8 @@ const loadMovies = () => {
 
     const movies = movieService.getMovies()
     if (Array.isArray(movies)) {
-        movies.forEach((movie) => {
-            moviesContainer.appendChild(createMovieElement(movie))
+        movies.forEach(async(movie) => {
+            moviesContainer.appendChild(await createMovieElement(movie))
         })
     }
 }
