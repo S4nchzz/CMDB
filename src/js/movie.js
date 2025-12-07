@@ -1,6 +1,9 @@
 import MovieService from "./services/movie.service.js"
 import GenreService from "./services/genre.service.js"
 
+/**
+ * Maneja la creación de películas.
+ */
 const manageMovieCreation = () => {
     const form = document.getElementById('movieForm')
     
@@ -17,6 +20,9 @@ const manageMovieCreation = () => {
     form.addEventListener('submit', onSubmit)
 }
 
+/**
+ * Imprime los géneros disponibles en el contenedor.
+ */
 const printAvailableGenres = () => {
     const container = document.getElementById('genreList')
     const genreService = GenreService.getInstance()
@@ -29,6 +35,9 @@ const printAvailableGenres = () => {
     });
 }
 
+/**
+ * Maneja la selección de géneros.
+ */
 const manageGenreSelector = () => {
     const container = document.getElementById('genreList')
     const movieService = MovieService.getInstance()
@@ -43,6 +52,9 @@ const manageGenreSelector = () => {
     })
 }
 
+/**
+ * Inicializa la aplicación.
+ */
 const init = () => {
     manageMovieCreation()
     printAvailableGenres()
